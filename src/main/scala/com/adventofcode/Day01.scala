@@ -13,4 +13,11 @@ class Day01 {
     if (list.length < 2) 0
     else loop(list.head, list)
   }
+
+  def partTwo(list: List[Int]): Int = {
+    val left = list.take(list.length / 2)
+    val right = list.drop(list.length / 2)
+
+    left.zip(right).filter { case (l, r) => l == r }.foldLeft(0) { (acc, elem) => acc + elem._1 + elem._2 }
+  }
 }

@@ -22,6 +22,26 @@ For example:
 
 What is the solution to your captcha?
 
+#### Part Two
+     
+ You notice a progress bar that jumps to 50% completion. Apparently, the door isn't yet satisfied, but it did emit a star as encouragement. The instructions change:
+ 
+ Now, instead of considering the next digit, it wants you to consider the digit halfway around the circular list. That is, if your list contains 10 items, only include a digit in your sum if the digit 10/2 = 5 steps forward matches it. Fortunately, your list has an even number of elements.
+ 
+ For example:
+ 
+ 1212 produces 6: the list contains 4 items, and all four digits match the digit 2 items ahead.
+ 
+ 1221 produces 0, because every comparison is between a 1 and a 2.
+ 
+ 123425 produces 4, because both 2s match each other, but no other digit has a match.
+ 
+ 123123 produces 12.
+ 
+ 12131415 produces 4.
+ 
+ What is the solution to your new captcha?
+
 
 ## Day 02 - Corruption Checksum
 
@@ -31,9 +51,11 @@ The spreadsheet consists of rows of apparently-random numbers. To make sure the 
 
 For example, given the following spreadsheet:
 
+```
 5 1 9 5  
 7 5 3  
 2 4 6 8  
+```
 
 The first row's largest and smallest values are 9 and 1, and their difference is 8.  
 The second row's largest and smallest values are 7 and 3, and their difference is 4.  
@@ -41,3 +63,47 @@ The third row's difference is 6.
 In this example, the spreadsheet's checksum would be 8 + 4 + 6 = 18.
 
 What is the checksum for the spreadsheet in your puzzle input?
+
+#### Part Two
+
+"Great work; looks like we're on the right track after all. Here's a star for your effort." However, the program seems a little worried. Can programs be worried?
+
+"Based on what we're seeing, it looks like all the User wanted is some information about the evenly divisible values in the spreadsheet. Unfortunately, none of us are equipped for that kind of calculation - most of us specialize in bitwise operations."
+
+It sounds like the goal is to find the only two numbers in each row where one evenly divides the other - that is, where the result of the division operation is a whole number. They would like you to find those numbers on each line, divide them, and add up each line's result.
+
+For example, given the following spreadsheet:
+
+5 9 2 8
+9 4 7 3
+3 8 6 5
+In the first row, the only two numbers that evenly divide are 8 and 2; the result of this division is 4.
+In the second row, the two numbers are 9 and 3; the result is 3.
+In the third row, the result is 2.
+In this example, the sum of the results would be 4 + 3 + 2 = 9.
+
+What is the sum of each row's result in your puzzle input?
+
+
+
+
+
+#### Part Two 
+
+As a stress test on the system, the programs here clear the grid and then store the value 1 in square 1. Then, in the same allocation order as shown above, they store the sum of the values in all adjacent squares, including diagonals.
+
+So, the first few squares' values are chosen as follows:
+
+Square 1 starts with the value 1.
+Square 2 has only one adjacent filled square (with value 1), so it also stores 1.
+Square 3 has both of the above squares as neighbors and stores the sum of their values, 2.
+Square 4 has all three of the aforementioned squares as neighbors and stores the sum of their values, 4.
+Square 5 only has the first and fourth squares as neighbors, so it gets the value 5.
+Once a square is written, its value does not change. Therefore, the first few squares would receive the following values:
+
+147  142  133  122   59
+304    5    4    2   57
+330   10    1    1   54
+351   11   23   25   26
+362  747  806--->   ...
+What is the first value written that is larger than your puzzle input?
