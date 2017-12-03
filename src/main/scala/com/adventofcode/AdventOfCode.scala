@@ -12,4 +12,5 @@ object AdventOfCode extends App {
   val day02Input = Source.fromResource("day02-input.txt").getLines().filter(_.length > 0).map(line => line.split('\t').map(_.toInt).toList).toList
   val day02 = new Day02()
   println(day02.corruptionChecksum(day02Input))
+  println(day02.evenlyDivisible(day02Input))
 }
