@@ -13,4 +13,8 @@ object AdventOfCode extends App {
   val day02 = new Day02()
   println(day02.corruptionChecksum(day02Input))
   println(day02.evenlyDivisible(day02Input))
+
+  val day03Input = 368078
+  val day03 = new Day03()
+  println(day03.circularMemory(day03Input))
 }
