@@ -26,4 +26,11 @@ object AdventOfCode extends App {
   val day04 = new Day04()
   println(day04.highEntropyPassphrases(day04Input))
   println(day04.passphrasesWithAnagrams(day04Input))
+
+  println("================= DAY 5 =====================")
+  val day05Input: List[Int] = Source.fromResource("day05-input.txt").getLines().toList.map(_.toInt)
+  val day05 = new Day05()
+  println(day05.mazeOfTwistyTrampolines(day05Input))                // 391540
+  println(day05.mazeOfTwistyTrampolinesEvenStranger(day05Input))    //
+
 }
